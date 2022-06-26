@@ -3,11 +3,8 @@
   <label class="label">{{label}}</label>
   <div class="control">
     <input [ngClass]="showErrors() ?'is-danger':'is-success'" class="input" type="text"  [formControl]="control">
-
   </div>
 </div>
-
-
 <ng-container
 *ngIf="control.dirty &&
 control.touched &&

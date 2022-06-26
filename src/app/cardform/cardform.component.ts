@@ -8,22 +8,22 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 })
 export class CardformComponent implements OnInit {
 
-   cardForm =new FormGroup({
-    name:new  FormControl(null,[
+  cardForm = new FormGroup({
+    name: new FormControl(null, [
       Validators.required,
       Validators.minLength(3)]),
-      cardNumber:new  FormControl(null,[
-        Validators.required,
-        Validators.minLength(16),
+    cardNumber: new FormControl(null, [
+      Validators.required,
+      Validators.minLength(16),
       Validators.maxLength(16)]),
-      expiration:new  FormControl(null,[
-        Validators.required,
-        Validators.pattern(/^[0-9]{4}[\/][0-9]{2}[\/][0-9]{2}$/)]),
-      securityCode:new  FormControl(null,[
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(3)])
-   })
+    expiration: new FormControl(null, [
+      Validators.required,
+      Validators.pattern(/^[0-9]{4}[\/][0-9]{2}[\/][0-9]{2}$/)]),
+    securityCode: new FormControl(null, [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(3)])
+  })
   constructor() { }
 
   ngOnInit(): void {
@@ -32,11 +32,11 @@ export class CardformComponent implements OnInit {
     const ctrl = absCtrl as FormControl;
     return ctrl;
   }
-  onSubmit(){
+  onSubmit() {
 
   }
-  resetForm(){
-this.cardForm.reset();
+  resetForm() {
+    this.cardForm.reset();
   }
 
 }
