@@ -9,11 +9,18 @@ import { FormControl } from '@angular/forms';
 export class InputComponent implements OnInit {
 
   @Input() control!:FormControl;
-
+  @Input() label!:string;
   constructor() { }
 
   ngOnInit(): void {
-    // console.log("adasdasdast",this.control)
   }
+
+  showErrors(){
+    return this.control.errors&&this.control.dirty&&this.control.touched;
+  }
+  // consoloObject(){
+  //   console.log(this.control.errors!['minlength']['requiredLength']);
+
+  // }
 
 }

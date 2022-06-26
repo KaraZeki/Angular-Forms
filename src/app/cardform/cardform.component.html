@@ -1,4 +1,30 @@
-<form [formGroup]="cardForm">
-   <app-input [control]="convertToFormControl(cardForm.get('name'))">
-  </app-input>
-</form>
+<div style="display:flex">
+  <div>
+    <img src="assets/visa.jpg" style="width:400px;height:100">
+   </div>
+  <div class="container">
+    <form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+      <app-input label="Ad Soyad" [control]="convertToFormControl(cardForm.get('name'))"></app-input>
+
+      <app-input label="Kart Numarası" [control]="convertToFormControl(cardForm.get('cardNumber'))"></app-input>
+
+      <div class="columns">
+        <div class="column">
+          <app-input label="Son Kullanma Tarihi " [control]="convertToFormControl(cardForm.get('expiration'))"></app-input>
+        </div>
+        <div class="column">
+          <app-input label="Güvenlik Kodu" [control]="convertToFormControl(cardForm.get('securityCode'))"></app-input>
+        </div>
+      </div>
+    <div class="buttons" style="display: flex; justify-content:flex-end">
+      <button (click)="resetForm()" type="button" class="button is-warning">Temizle</button>
+      <button [disabled]="cardForm.invalid" type="submit" class="button is-primary">Kaydet</button>
+    </div>
+
+
+
+    </form>
+
+  </div>
+</div>
+

@@ -1,13 +1,29 @@
-<input type="text" [formControl]="control">
+
+<div class="field">
+  <label class="label">{{label}}</label>
+  <div class="control">
+    <input [ngClass]="showErrors() ?'is-danger':'is-success'" class="input" type="text"  [formControl]="control">
+
+  </div>
+</div>
+
+
 <ng-container
 *ngIf="control.dirty &&
 control.touched &&
 control.errors" >
-<div *ngIf="control.errors['required']">
+<div class="help is-danger" *ngIf="control.errors['required']">
   *Zorunlu Alan
 </div>
-<div *ngIf="control.errors['minlength']">
-  Min 3 Karakter
+<div class="help is-danger" *ngIf="control.errors['minlength']">
+  Min {{control.errors!['minlength']['requiredLength']}} Karakter
+</div>
+
+<div class="help is-danger" *ngIf="control.errors['maxlength']">
+  Max {{control.errors!['maxlength']['requiredLength']}} Karakter
+</div>
+<div class="help is-danger" *ngIf="control.errors['pattern']">
+  Tarih "yyyy/mm/dd" formatında olmalıdır.
 </div>
 
 </ng-container>
