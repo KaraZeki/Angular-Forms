@@ -1,7 +1,4 @@
 <form [formGroup]="cardForm">
-  <input type="text" formControlName="name">
-
+   <app-input [control]="convertToFormControl(cardForm.get('name'))">
+  </app-input>
 </form>
-
-<div>Valid Mi</div>
-<div>{{cardForm.valid?"true":"false"}}</div>
